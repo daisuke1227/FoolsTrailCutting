@@ -1,0 +1,24 @@
+{
+  "geode": "4.1.1",
+  "gd": {"android": "2.2074", "win": "2.2074"},
+  "version": "v1.0.0",
+  "id": "saritahhh.trailcut",
+  "name": "Fool's Trail Cutting",
+  "developer": "Saritahhh",
+  "description": "Replicates the Trail Cutting effect from 2.1.",
+  "settings": {
+    "cutting-freq": {
+      "type": "float",
+      "name": "Cutting Frequency",
+      "description": "Defines how often the trail cuts (in ms), lower value = faster cutting! Values above 0.3 can be too slow.",
+      "default": 0.3,
+      "min": 0.1,
+      "max": 1,
+      "input": false,
+      "arrows": true,
+      "arrow-step": 0.05,
+      "slider": false
+    }
+  },
+  "tags": ["offline", "gameplay", "customization"]
+}
