@@ -6,6 +6,7 @@
   "name": "Fool's Trail Cutting",
   "developer": "Saritahhh",
   "description": "Replicates the Trail Cutting effect from 2.1.",
+  "repository":"https://github.com/DeepRsnanceX/FoolsTrailCutting",
   "settings": {
     "cutting-freq": {
       "type": "float",
