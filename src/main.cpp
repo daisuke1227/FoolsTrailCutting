@@ -9,19 +9,18 @@ using namespace geode::prelude;
 static std::unordered_map<CCMotionStreak*, bool> streakStates;
 static bool trailExternallyTriggered = false;
 
-static double cutFreq = 0.2;
+
+static double cutFreq = Mod::get()->getSettingValue<double>("cutting-freq");
 
 $execute {
     listenForSettingChanges("cutting-freq", [](double value) {
         cutFreq = value;
-        CCLOG("Cutting Frequency updated: %f", cutFreq);
     });
 }
 
 class $modify(CCMotionStreak) {
-
     struct Fields {
-        float elapsedTime = 0.1f;
+        float elapsedTime = 0.0f;
         bool isCutting = false;
     };
 
@@ -47,28 +46,36 @@ class $modify(CCMotionStreak) {
 };
 
 class $modify(PlayerObject) {
-
     void activateStreak() {
         PlayerObject::activateStreak();
 
         if (m_regularTrail) {
-            auto streak = reinterpret_cast<CCMotionStreak*>(m_regularTrail);
+            auto streak = static_cast<CCMotionStreak*>(m_regularTrail);
             if (streak) {
                 streakStates[streak] = true;
             }
         }
     }
 
-    // just in case
-    // this code is old as SHIT but i dont wanna remove it
-    // im scared its gonna fuck up LOL
     void resetStreak() {
         PlayerObject::resetStreak();
 
         if (m_regularTrail) {
-            auto streak = reinterpret_cast<CCMotionStreak*>(m_regularTrail);
+            auto streak = static_cast<CCMotionStreak*>(m_regularTrail);
             if (streak) {
                 streakStates[streak] = false;
+            }
+        }
+    }
+
+    void bumpPlayer(float p0, int p1, bool p2, GameObject* p3) {
+        PlayerObject::bumpPlayer(p0, p1, p2, p3);
+
+        if (m_regularTrail) {
+            auto streak = static_cast<CCMotionStreak*>(m_regularTrail); 
+            if (streak) {
+                streakStates[streak] = true;
+                trailExternallyTriggered = true;
             }
         }
     }
@@ -78,7 +85,7 @@ class $modify(PlayerObject) {
 
         if (!m_isShip && !m_isSwing && !m_isDart && !m_isBird) {
             if (m_regularTrail) {
-                auto streak = reinterpret_cast<CCMotionStreak*>(m_regularTrail);
+                auto streak = static_cast<CCMotionStreak*>(m_regularTrail);
                 if (streak) {
                     streakStates[streak] = false;
                 }
@@ -91,7 +98,7 @@ class $modify(PlayerObject) {
 
         if (m_isShip || m_isSwing || m_isDart || m_isBird) {
             if (m_regularTrail) {
-                auto streak = reinterpret_cast<CCMotionStreak*>(m_regularTrail);
+                auto streak = static_cast<CCMotionStreak*>(m_regularTrail);
                 if (streak) {
                     streakStates[streak] = true;
                 }
