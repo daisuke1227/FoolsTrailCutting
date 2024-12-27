@@ -25,7 +25,7 @@ $execute {
 
 class $modify(CCMotionStreak) {
     struct Fields {
-        float elapsedTime = 0.0f;
+        float elapsedTime = cutFreq / 2;
         bool isCutting = false;
     };
 

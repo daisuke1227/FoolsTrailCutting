@@ -11,9 +11,9 @@
     "cutting-freq": {
       "type": "float",
       "name": "Cutting Frequency",
-      "description": "Defines how often the trail cuts (in ms), lower value = faster cutting! Values above 0.3 can be too slow.",
-      "default": 0.3,
-      "min": 0.1,
+      "description": "Defines how often the trail cuts, <cp>lower value = faster cutting!</c>\n\n<cl>0.2 by default gives the closest result to the original visual, but could cause long periods of time where the trail remains unaffected.</c>\n\n<cr>Values above 0.3 can be too slow.</c>",
+      "default": 0.2,
+      "min": 0,
       "max": 1,
       "input": false,
       "arrows": true,
