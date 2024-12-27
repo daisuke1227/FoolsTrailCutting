@@ -30,6 +30,8 @@ class $modify(CCMotionStreak) {
     };
 
     virtual void update(float delta) {
+        CCMotionStreak::update(delta);
+
         if (streakStates[this]) {
             m_fields->elapsedTime += delta;
 
@@ -45,8 +47,6 @@ class $modify(CCMotionStreak) {
                 m_fields->isCutting = !m_fields->isCutting;
             }
         }
-
-        CCMotionStreak::update(delta);
     }
 };
 
