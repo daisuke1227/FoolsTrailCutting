@@ -6,6 +6,11 @@
 
 using namespace geode::prelude;
 
+// i assume some geode dev is gonna review this to know if this should be approved or not
+// apologies for the shit code in advance LOL
+// re-learning c++ while learning geode and gd modding is kinda hard (and not ideal ik)
+// if anything's like VERY fucked up lmk and i'll get on it :)
+
 static std::unordered_map<CCMotionStreak*, bool> streakStates;
 static bool trailExternallyTriggered = false;
 
