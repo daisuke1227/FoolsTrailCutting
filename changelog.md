@@ -1,5 +1,5 @@
 # v1.0.2
-- Added Mac support (thx [Erymanthus!](https://geode-sdk.org/mods?developer=raydeeux))
+- Added Mac support (thx [Erymanthus!](https://github.com/RayDeeUx))
 
 ## v1.0.1
 - Improved cutting consistency by skipping the call to the original trail activation function once the trail is already activated.
