@@ -1,4 +1,3 @@
-#include <Geode/Geode.hpp>
 #include <Geode/modify/PlayerObject.hpp>
 #include <Geode/modify/CCMotionStreak.hpp>
 #include <Geode/loader/SettingV3.hpp>
@@ -17,7 +16,7 @@ static bool shouldCallOriginal = true;
 
 static double cutFreq = Mod::get()->getSettingValue<double>("cutting-freq");
 
-$execute {
+$on_mod(Loaded) {
     listenForSettingChanges("cutting-freq", [](double value) {
         cutFreq = value;
     });
