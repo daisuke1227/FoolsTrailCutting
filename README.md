@@ -7,3 +7,6 @@ This is my first ever Geode mod, so it's definitely nowhere near perfect and it'
 ## Why the name?
 
 Pyrite is a mineral that is known as "Fool's Gold" due to it looking very similar to gold, but absolutely not being gold in the slightest. Similarly, this mod gives a similar visual effect to Trail Cutting, but is absolutely nowhere near being a faithful remake of the original visual bug, nor does this mod unfix the bug.
+
+### Credits
+- [Erymanthus](https://github.com/RayDeeUx): Added mac support
