@@ -27,9 +27,9 @@ add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
 setup_geode_mod(${PROJECT_NAME})
 
-# On iOS, allow undefined symbols (they’ll be resolved by the host app at runtime)
-if ("${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
-    message(STATUS "Adding linker flags to allow undefined symbols on iOS…")
+# On Apple (iOS/macOS), allow undefined symbols to be looked up in the host app at runtime
+if (APPLE)
+    message(STATUS "Adding linker flags for dynamic_lookup on Apple platforms…")
     target_link_options(${PROJECT_NAME} PRIVATE
         "-Wl,-undefined,dynamic_lookup"
         "-Wl,-flat_namespace"
